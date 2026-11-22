@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080811">
+<meta name="description" content="NEXORA - Your digital playground. Explore creative generators and useful digital tools.">
+<title>NEXORA — Your Digital Playground</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #080811;
+  --panel: #11111f;
+  --purple: #9565ff;
+  --blue: #548bff;
+  --text: #f5f3ff;
+  --muted: #9291a8;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 550px;
+  height: 550px;
+  background: #703cff;
+  filter: blur(180px);
+  opacity: .15;
+  top: -250px;
+  left: 15%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+header {
+  height: 76px;
+  padding: 0 8%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ffffff12;
+  background: #080811d9;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(20px);
+  z-index: 10;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg,#fff,#a98aff);
+  color: transparent;
+  background-clip: text;
+}
+
+nav { display: flex; gap: 28px; }
+
+nav a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 13px;
+  transition: .2s;
+}
+
+nav a:hover { color: white; }
+
+.hero {
+  text-align: center;
+  padding: 110px 20px 85px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 9px 17px;
+  border: 1px solid #9565ff55;
+  background: #9565ff12;
+  border-radius: 30px;
+  color: #bd9fff;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+}
+
+h1 {
+  font-size: clamp(43px, 8vw, 82px);
+  font-weight: 900;
+  letter-spacing: -4px;
+  line-height: 1.08;
+}
+
+.gradient {
+  background: linear-gradient(90deg,#a879ff,#638bff,#d18cff);
+  color: transparent;
+  background-clip: text;
+}
+
+.hero p {
+  max-width: 550px;
+  margin: 24px auto 32px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 14px 24px;
+  background: linear-gradient(100deg,#8653f5,#537dff);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px #8653f555;
+}
+
+.secondary {
+  background: #ffffff0a;
+  border: 1px solid #ffffff20;
+  margin-left: 9px;
+}
+
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 22px 90px;
+}
+
+.section-heading {
+  margin-bottom: 35px;
+}
+
+.section-heading h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.tools {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 19px;
+}
+
+.tool {
+  background: linear-gradient(145deg,#151526,#0e0e19);
+  border: 1px solid #ffffff12;
+  border-radius: 17px;
+  padding: 26px;
+  min-height: 210px;
+  transition: .25s;
+}
+
+.tool:hover {
+  transform: translateY(-6px);
+  border-color: #9565ff77;
+  box-shadow: 0 12px 40px #0008;
+}
+
+.tool-icon {
+  font-size: 29px;
+  margin-bottom: 22px;
+}
+
+.tool h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.tool p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.tool button {
+  background: transparent;
+  color: #b89bff;
+  border: 0;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.generator {
+  display: none;
+  max-width: 650px;
+  margin: 0 auto 70px;
+  background: var(--panel);
+  border: 1px solid #ffffff20;
+  border-radius: 20px;
+  padding: 30px;
+}
+
+.generator h2 { margin-bottom: 12px; }
+
+.generator p {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  background: #090914;
+  border: 1px solid #ffffff20;
+  border-radius: 9px;
+  color: white;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: var(--purple);
+}
+
+.result {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+  background: #9565ff13;
+  border: 1px solid #9565ff40;
+  min-height: 55px;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.about {
+  background: #11111f;
+  border-top: 1px solid #ffffff10;
+  border-bottom: 1px solid #ffffff10;
+  padding: 65px 20px;
+  text-align: center;
+}
+
+.about h2 { margin-bottom: 15px; }
+
+.about p {
+  max-width: 550px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px 15px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+footer span { color: #b89bff; }
+
+@media(max-width:750px) {
+  header { padding: 0 5%; }
+  nav { gap: 13px; }
+  nav a { font-size: 11px; }
+  .tools { grid-template-columns: 1fr; }
+  .hero { padding-top: 85px; }
+  h1 { letter-spacing: -2px; }
+  .generator { margin-left: 15px; margin-right: 15px; }
+}
+
+@media(max-width:380px) {
+  nav { gap: 8px; }
+  nav a { font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">NEXORA.</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#tools">Tools</a>
+    <a href="#about">About</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="tag">✦ WELCOME TO YOUR DIGITAL PLAYGROUND</div>
+
+  <h1>
+    Create Something<br>
+    <span class="gradient">Extraordinary.</span>
+  </h1>
+
+  <p>
+    Discover creative generators, find your next gaming identity
+    and turn random ideas into something awesome.
+    Your imagination starts here.
+  </p>
+
+  <button class="btn" onclick="document.querySelector('#tools').scrollIntoView({behavior:'smooth'})">
+    Explore Tools →
+  </button>
+
+  <button class="btn secondary" onclick="openTool('username')">
+    Try a Tool
+  </button>
+</section>
+
+<section class="section" id="tools">
+  <div class="section-heading">
+    <h2>Explore Our Tools <span class="gradient">✦</span></h2>
+    <p>Small tools. Endless possibilities.</p>
+  </div>
+
+  <div class="tools">
+
+    <div class="tool">
+      <div class="tool-icon">⚡</div>
+      <h3>Username Generator</h3>
+      <p>Create unique usernames for your online identity.</p>
+      <button onclick="openTool('username')">Explore Tool →</button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🎮</div>
+      <h3>Gaming Name Generator</h3>
+      <p>Discover cool gaming names for your next adventure.</p>
+      <button onclick="openTool('gaming')">Explore Tool →</button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">✍️</div>
+      <h3>Bio Generator</h3>
+      <p>Generate creative bios for your social profiles.</p>
+      <button onclick="openTool('bio')">Explore Tool →</button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">✨</div>
+      <h3>Random Idea Generator</h3>
+      <p>Get a fresh idea whenever you need inspiration.</p>
+      <button onclick="openTool('ideas')">Explore Tool →</button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🔤</div>
+      <h3>Text Case Converter</h3>
+      <p>Change your text into different writing styles.</p>
+      <button onclick="openTool('text')">Explore Tool →</button>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🌙</div>
+      <h3>Secret Message Maker</h3>
+      <p>Turn your messages into simple encoded text.</p>
+      <button onclick="openTool('secret')">Explore Tool →</button>
+    </div>
+
+  </div>
+</section>
+
+<section class="generator" id="generator">
+  <h2 id="toolTitle">Your Tool</h2>
+  <p id="toolDescription">Create something new.</p>
+
+  <div id="toolInputs"></div>
+
+  <button class="btn" onclick="generate()">Generate ✦</button>
+
+  <div class="result" id="result" aria-live="polite">
+    Your result will appear here.
+  </div>
+
+  <div class="actions">
+    <button class="btn secondary" onclick="copyResult()">Copy Result</button>
+    <button class="btn secondary" onclick="generate()">Try Again ↻</button>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <h2>About <span class="gradient">NEXORA</span></h2>
+  <p>
+    NEXORA is an independent digital playground built for
+    creativity, discovery and fun. Explore our collection
+    of simple tools and make the internet a little more interesting.
+  </p>
+</section>
+
+<footer>
+  © 2026 <span>NEXORA</span>. Made for curious minds.
+  <br><br>
+  Built with creativity. Powered by imagination.
+</footer>
+
+<script>
+let currentTool = "";
+
+const random = arr => arr[Math.floor(Math.random() * arr.length)];
+
+const toolData = {
+  username: {
+    title: "Username Generator",
+    description: "Create a unique online identity.",
+    inputs: '<input id="word" placeholder="Enter a word or nickname (optional)">',
+    run: () => {
+      const word = document.getElementById("word").value.trim();
+      const starts = ["Nova","Pixel","Shadow","Cosmic","Neon","Mystic","Cyber"];
+      const ends = ["X","Vibe","Storm","Verse","Spark","Wave","Core"];
+      return random([word || random(starts), random(ends)]) +
+        random(["", "X", "07", "99", "_", "HQ"]);
+    }
+  },
+
+  gaming: {
+    title: "Gaming Name Generator",
+    description: "Find a name for your next gaming identity.",
+    inputs: "",
+    run: () => random([
+      "VoidPhantom","NeonReaper","FrostNova","PixelVortex",
+      "ShadowPulse","CyberKnight","GhostOrbit","StormByte",
+      "NightRogue","DarkComet","BlazeSpecter","ZeroLegend"
+    ]) + random(["","X","07","YT"])
+  },
+
+  bio: {
+    title: "Bio Generator",
+    description: "Create a short profile bio.",
+    inputs: '<select id="mood"><option value="dreamer">Dreamer</option><option value="gaming">Gamer</option><option value="creative">Creative</option><option value="motivated">Motivated</option></select>',
+    run: () => {
+      const mood = document.getElementById("mood").value;
+      const bios = {
+        dreamer: ["Chasing dreams, creating my own universe ✨","Big dreams. Quiet moves. Endless possibilities.","Living beyond the ordinary 🌙"],
+        gaming: ["Game on. Limits off. 🎮","Born to play. Built to win.","One player. Infinite adventures."],
+        creative: ["Ideas into reality ✦","Creating my own kind of magic.","Different thoughts. Different worlds."],
+        motivated: ["Progress over perfection.","Building my future, one step at a time.","Stay curious. Keep creating."]
+      };
+      return random(bios[mood]);
+    }
+  },
+
+  ideas: {
+    title: "Random Idea Generator",
+    description: "Get inspired with a new project idea.",
+    inputs: "",
+    run: () => random([
+      "Build a website that recommends music based on your mood.",
+      "Create a digital collection of unusual facts.",
+      "Design a personal productivity dashboard.",
+      "Make a website that generates fictional worlds.",
+      "Create an interactive daily challenge.",
+      "Build a quiz that discovers your creative personality.",
+      "Make a collection of useful browser shortcuts.",
+      "Design a virtual dream travel planner."
+    ])
+  },
+
+  text: {
+    title: "Text Case Converter",
+    description: "Enter text and choose your writing style.",
+    inputs: '<input id="word" placeholder="Type your text here"><select id="case"><option value="upper">UPPERCASE</option><option value="lower">lowercase</option><option value="title">Title Case</option><option value="reverse">Reverse Text</option></select>',
+    run: () => {
+      const t = document.getElementById("word").value;
+      const mode = document.getElementById("case").value;
+      if (mode === "upper") return t.toUpperCase();
+      if (mode === "lower") return t.toLowerCase();
+      if (mode === "reverse") return [...t].reverse().join("");
+      return t.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+    }
+  },
+
+  secret: {
+    title: "Secret Message Maker",
+    description: "Encode or decode a message using Base64. This is not secure encryption.",
+    inputs: '<input id="word" placeholder="Enter your message"><select id="mode"><option value="encode">Encode message</option><option value="decode">Decode message</option></select>',
+    run: () => {
+      const t = document.getElementById("word").value;
+      const mode = document.getElementById("mode").value;
+      try {
+        return mode === "encode"
+          ? btoa(unescape(encodeURIComponent(t)))
+          : decodeURIComponent(escape(atob(t)));
+      } catch(e) {
+        return "Invalid message. Please check your input.";
+      }
+    }
+  }
+};
+
+function openTool(name) {
+  currentTool = name;
+  const data = toolData[name];
+
+  document.getElementById("toolTitle").textContent = data.title;
+  document.getElementById("toolDescription").textContent = data.description;
+  document.getElementById("toolInputs").innerHTML = data.inputs;
+  document.getElementById("result").textContent = "Your result will appear here.";
+
+  const section = document.getElementById("generator");
+  section.style.display = "block";
+  section.scrollIntoView({behavior:"smooth", block:"center"});
+}
+
+function generate() {
+  if (!currentTool) return;
+
+  try {
+    const output = toolData[currentTool].run();
+    document.getElementById("result").textContent =
+      output || "Please enter some text first.";
+  } catch(e) {
+    document.getElementById("result").textContent =
+      "Something went wrong. Please try again.";
+  }
+}
+
+function copyResult() {
+  const text = document.getElementById("result").textContent;
+
+  if (!text || text === "Your result will appear here.") return;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text)
+      .then(() => alert("Copied successfully!"))
+      .catch(() => alert("Copy failed. Please select and copy the text."));
+  } else {
+    alert("Please select and copy the result manually.");
+  }
+}
+</script>
+
+</body>
+</html>
