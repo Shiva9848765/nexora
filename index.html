@@ -4,299 +4,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080811">
-<meta name="description" content="NEXORA - Your digital playground. Explore creative generators and useful digital tools.">
-<title>NEXORA — Your Digital Playground</title>
+<meta name="theme-color" content="#080710">
+<meta name="description" content="NEXORA Reality Lab. Explore alternate realities, create imaginary worlds and discover different futures.">
+<title>NEXORA — Reality Lab</title>
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
 :root {
-  --bg: #080811;
-  --panel: #11111f;
-  --purple: #9565ff;
-  --blue: #548bff;
-  --text: #f5f3ff;
-  --muted: #9291a8;
+  --bg:#080710;
+  --panel:#12101e;
+  --purple:#a477ff;
+  --blue:#647eff;
+  --text:#f7f4ff;
+  --muted:#9d98b1;
+  --border:#ffffff16;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {box-sizing:border-box;margin:0;padding:0}
 
-html { scroll-behavior: smooth; }
+html {scroll-behavior:smooth}
 
 body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, Arial, sans-serif;
-  min-height: 100vh;
-  overflow-x: hidden;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,Arial,sans-serif;
+  min-height:100vh;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  width: 550px;
-  height: 550px;
-  background: #703cff;
-  filter: blur(180px);
-  opacity: .15;
-  top: -250px;
-  left: 15%;
-  pointer-events: none;
-  z-index: -1;
-}
+button,input,textarea {font:inherit}
+
+button {cursor:pointer}
 
 header {
-  height: 76px;
-  padding: 0 8%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #ffffff12;
-  background: #080811d9;
-  position: sticky;
-  top: 0;
-  backdrop-filter: blur(20px);
-  z-index: 10;
+  height:76px;
+  padding:0 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:#080710ed;
+  position:sticky;
+  top:0;
+  z-index:10;
+  backdrop-filter:blur(18px);
 }
 
 .logo {
-  font-size: 25px;
-  font-weight: 900;
-  letter-spacing: 3px;
-  background: linear-gradient(90deg,#fff,#a98aff);
-  color: transparent;
-  background-clip: text;
+  font-size:23px;
+  font-weight:900;
+  letter-spacing:4px;
+  background:linear-gradient(90deg,#fff,#ad83ff);
+  color:transparent;
+  background-clip:text;
 }
 
-nav { display: flex; gap: 28px; }
+nav {display:flex;gap:25px}
 
 nav a {
-  text-decoration: none;
-  color: var(--muted);
-  font-size: 13px;
-  transition: .2s;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:13px;
 }
 
-nav a:hover { color: white; }
+nav a:hover {color:white}
 
 .hero {
-  text-align: center;
-  padding: 110px 20px 85px;
+  text-align:center;
+  padding:105px 20px 90px;
+  background:
+  radial-gradient(ellipse at 50% 35%,#7745d52c,transparent 60%);
 }
 
-.tag {
-  display: inline-block;
-  padding: 9px 17px;
-  border: 1px solid #9565ff55;
-  background: #9565ff12;
-  border-radius: 30px;
-  color: #bd9fff;
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-bottom: 28px;
+.pill {
+  display:inline-block;
+  padding:9px 17px;
+  border:1px solid #a477ff55;
+  border-radius:30px;
+  color:#c5aaff;
+  background:#a477ff12;
+  font-size:11px;
+  letter-spacing:2px;
+  margin-bottom:27px;
 }
 
 h1 {
-  font-size: clamp(43px, 8vw, 82px);
-  font-weight: 900;
-  letter-spacing: -4px;
-  line-height: 1.08;
+  font-size:clamp(43px,8vw,82px);
+  line-height:1.08;
+  font-weight:900;
+  letter-spacing:-4px;
 }
 
 .gradient {
-  background: linear-gradient(90deg,#a879ff,#638bff,#d18cff);
-  color: transparent;
-  background-clip: text;
+  background:linear-gradient(90deg,#b88aff,#728cff,#d6a0ff);
+  color:transparent;
+  background-clip:text;
 }
 
 .hero p {
-  max-width: 550px;
-  margin: 24px auto 32px;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 15px;
+  color:var(--muted);
+  max-width:580px;
+  margin:25px auto 32px;
+  font-size:15px;
+  line-height:1.9;
 }
 
 .btn {
-  border: 0;
-  border-radius: 10px;
-  padding: 14px 24px;
-  background: linear-gradient(100deg,#8653f5,#537dff);
-  color: white;
-  font-weight: 700;
-  cursor: pointer;
-  transition: .2s;
+  border:0;
+  border-radius:10px;
+  padding:14px 23px;
+  background:linear-gradient(100deg,#925bfa,#617dff);
+  color:white;
+  font-weight:700;
+  transition:.2s;
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px #8653f555;
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px #8758ff44;
 }
 
-.secondary {
-  background: #ffffff0a;
-  border: 1px solid #ffffff20;
-  margin-left: 9px;
+.btn.secondary {
+  background:#ffffff0b;
+  border:1px solid var(--border);
+  margin-left:8px;
 }
 
 .section {
-  max-width: 1100px;
-  margin: auto;
-  padding: 40px 22px 90px;
+  max-width:1100px;
+  padding:55px 22px 85px;
+  margin:auto;
 }
 
-.section-heading {
-  margin-bottom: 35px;
+.heading {margin-bottom:32px}
+
+.heading h2 {
+  font-size:30px;
+  margin-bottom:10px;
 }
 
-.section-heading h2 {
-  font-size: 30px;
-  margin-bottom: 10px;
+.heading p {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.7;
 }
 
-.section-heading p {
-  color: var(--muted);
-  font-size: 14px;
+.worlds {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
 }
 
-.tools {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 19px;
+.world {
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  background:linear-gradient(145deg,#19152b,#100e19);
+  border-radius:17px;
+  padding:24px;
+  min-height:235px;
+  transition:.25s;
 }
 
-.tool {
-  background: linear-gradient(145deg,#151526,#0e0e19);
-  border: 1px solid #ffffff12;
-  border-radius: 17px;
-  padding: 26px;
-  min-height: 210px;
-  transition: .25s;
+.world:hover {
+  transform:translateY(-5px);
+  border-color:#a477ff77;
 }
 
-.tool:hover {
-  transform: translateY(-6px);
-  border-color: #9565ff77;
-  box-shadow: 0 12px 40px #0008;
+.world-icon {font-size:33px;margin-bottom:20px}
+
+.world h3 {font-size:17px;margin-bottom:10px}
+
+.world p {
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-bottom:20px;
 }
 
-.tool-icon {
-  font-size: 29px;
-  margin-bottom: 22px;
+.world button {
+  color:#c3a7ff;
+  background:none;
+  border:0;
+  font-weight:700;
+  font-size:12px;
 }
 
-.tool h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
+.builder {
+  border:1px solid #a477ff40;
+  border-radius:20px;
+  background:linear-gradient(145deg,#171326,#100e19);
+  padding:30px;
+  margin-top:30px;
 }
 
-.tool p {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-  margin-bottom: 22px;
+.builder h2 {font-size:25px;margin-bottom:10px}
+
+.subtext {
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.8;
+  margin-bottom:25px;
 }
 
-.tool button {
-  background: transparent;
-  color: #b89bff;
-  border: 0;
-  font-weight: 700;
-  cursor: pointer;
+label {
+  display:block;
+  font-size:12px;
+  color:#c9c1df;
+  margin-bottom:9px;
+  font-weight:600;
 }
 
-.generator {
-  display: none;
-  max-width: 650px;
-  margin: 0 auto 70px;
-  background: var(--panel);
-  border: 1px solid #ffffff20;
-  border-radius: 20px;
-  padding: 30px;
+input,textarea {
+  width:100%;
+  padding:14px;
+  color:white;
+  background:#090812;
+  border:1px solid var(--border);
+  border-radius:9px;
+  margin-bottom:19px;
+  outline:none;
 }
 
-.generator h2 { margin-bottom: 12px; }
+textarea {resize:vertical;min-height:90px}
 
-.generator p {
-  color: var(--muted);
-  font-size: 13px;
-  margin-bottom: 20px;
-}
-
-input, select {
-  width: 100%;
-  padding: 14px;
-  background: #090914;
-  border: 1px solid #ffffff20;
-  border-radius: 9px;
-  color: white;
-  margin-bottom: 15px;
-  outline: none;
-}
-
-input:focus, select:focus {
-  border-color: var(--purple);
-}
+input:focus,textarea:focus {border-color:var(--purple)}
 
 .result {
-  margin-top: 20px;
-  padding: 18px;
-  border-radius: 10px;
-  background: #9565ff13;
-  border: 1px solid #9565ff40;
-  min-height: 55px;
-  overflow-wrap: anywhere;
-  line-height: 1.6;
+  display:none;
+  margin-top:28px;
+  padding:23px;
+  background:#a477ff0c;
+  border:1px solid #a477ff40;
+  border-radius:14px;
 }
 
-.actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 15px;
+.result h3 {font-size:21px;margin-bottom:12px}
+
+.result p {
+  color:#c3bed3;
+  font-size:13px;
+  line-height:1.9;
+  margin-bottom:18px;
+  white-space:pre-wrap;
+}
+
+.choices {
+  display:grid;
+  gap:11px;
+  margin-top:15px;
+}
+
+.choice {
+  width:100%;
+  text-align:left;
+  padding:16px;
+  border:1px solid #ffffff20;
+  border-radius:10px;
+  background:#ffffff08;
+  color:white;
+  line-height:1.5;
+}
+
+.choice:hover {border-color:var(--purple)}
+
+.choice:disabled {
+  opacity:.5;
+  cursor:default;
+}
+
+.status {
+  color:#bda1ff;
+  font-size:11px;
+  letter-spacing:1px;
+  margin-bottom:15px;
+}
+
+.action-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:20px;
+}
+
+.action-row .btn.secondary {margin:0}
+
+.saved-item {
+  padding:16px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#ffffff07;
+  margin-bottom:12px;
+}
+
+.saved-item h3 {font-size:15px;margin-bottom:7px}
+
+.saved-item p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.7;
+}
+
+.saved-item button {
+  background:none;
+  border:0;
+  color:#c3a7ff;
+  margin-top:12px;
+  margin-right:15px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.empty {
+  color:var(--muted);
+  font-size:13px;
+  padding:20px;
+  border:1px dashed #ffffff25;
+  border-radius:12px;
 }
 
 .about {
-  background: #11111f;
-  border-top: 1px solid #ffffff10;
-  border-bottom: 1px solid #ffffff10;
-  padding: 65px 20px;
-  text-align: center;
+  text-align:center;
+  padding:70px 20px;
+  background:#11101b;
+  border-top:1px solid var(--border);
 }
 
-.about h2 { margin-bottom: 15px; }
-
 .about p {
-  max-width: 550px;
-  margin: auto;
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
+  max-width:550px;
+  color:var(--muted);
+  margin:17px auto;
+  font-size:13px;
+  line-height:1.9;
 }
 
 footer {
-  text-align: center;
-  padding: 30px 15px;
-  color: var(--muted);
-  font-size: 12px;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+  padding:28px;
 }
 
-footer span { color: #b89bff; }
+footer span {color:#b99aff}
 
 @media(max-width:750px) {
-  header { padding: 0 5%; }
-  nav { gap: 13px; }
-  nav a { font-size: 11px; }
-  .tools { grid-template-columns: 1fr; }
-  .hero { padding-top: 85px; }
-  h1 { letter-spacing: -2px; }
-  .generator { margin-left: 15px; margin-right: 15px; }
-}
-
-@media(max-width:380px) {
-  nav { gap: 8px; }
-  nav a { font-size: 10px; }
+  .worlds {grid-template-columns:1fr}
+  header {padding:0 5%}
+  nav {gap:13px}
+  nav a {font-size:11px}
+  h1 {letter-spacing:-2px}
+  .hero {padding-top:80px}
+  .builder {padding:20px}
 }
 </style>
 </head>
@@ -307,255 +365,481 @@ footer span { color: #b89bff; }
   <div class="logo">NEXORA.</div>
   <nav>
     <a href="#home">Home</a>
-    <a href="#tools">Tools</a>
-    <a href="#about">About</a>
+    <a href="#explore">Explore</a>
+    <a href="#create">Create</a>
+    <a href="#saved">My Worlds</a>
   </nav>
 </header>
 
 <section class="hero" id="home">
-  <div class="tag">✦ WELCOME TO YOUR DIGITAL PLAYGROUND</div>
+  <div class="pill">✦ REALITY IS ONLY THE BEGINNING</div>
 
   <h1>
-    Create Something<br>
-    <span class="gradient">Extraordinary.</span>
+    What If Your<br>
+    <span class="gradient">World Changed?</span>
   </h1>
 
   <p>
-    Discover creative generators, find your next gaming identity
-    and turn random ideas into something awesome.
-    Your imagination starts here.
+    Enter alternate realities, make impossible choices
+    and create worlds that exist only in your imagination.
+    Your next universe starts here.
   </p>
 
-  <button class="btn" onclick="document.querySelector('#tools').scrollIntoView({behavior:'smooth'})">
-    Explore Tools →
+  <button class="btn" onclick="go('explore')">
+    Explore Realities →
   </button>
 
-  <button class="btn secondary" onclick="openTool('username')">
-    Try a Tool
+  <button class="btn secondary" onclick="go('create')">
+    Create A World
   </button>
 </section>
 
-<section class="section" id="tools">
-  <div class="section-heading">
-    <h2>Explore Our Tools <span class="gradient">✦</span></h2>
-    <p>Small tools. Endless possibilities.</p>
+<section class="section" id="explore">
+
+  <div class="heading">
+    <h2>Explore Realities <span class="gradient">✦</span></h2>
+    <p>Six doors. Six different possibilities. Which world will you enter?</p>
   </div>
 
-  <div class="tools">
+  <div class="worlds">
 
-    <div class="tool">
-      <div class="tool-icon">⚡</div>
-      <h3>Username Generator</h3>
-      <p>Create unique usernames for your online identity.</p>
-      <button onclick="openTool('username')">Explore Tool →</button>
+    <article class="world">
+      <div class="world-icon">⏳</div>
+      <h3>The Time Divide</h3>
+      <p>What if everyone could pause time, but only once in their life?</p>
+      <button onclick="startWorld('time')">Enter Reality →</button>
+    </article>
+
+    <article class="world">
+      <div class="world-icon">🌊</div>
+      <h3>The Lost Ocean</h3>
+      <p>What if the oceans suddenly disappeared from Earth?</p>
+      <button onclick="startWorld('ocean')">Enter Reality →</button>
+    </article>
+
+    <article class="world">
+      <div class="world-icon">🌙</div>
+      <h3>Two Moons</h3>
+      <p>What if Earth had two moons and nights never looked the same?</p>
+      <button onclick="startWorld('moon')">Enter Reality →</button>
+    </article>
+
+    <article class="world">
+      <div class="world-icon">⚡</div>
+      <h3>The Power Age</h3>
+      <p>What if every person developed one extraordinary ability?</p>
+      <button onclick="startWorld('power')">Enter Reality →</button>
+    </article>
+
+    <article class="world">
+      <div class="world-icon">🪞</div>
+      <h3>The Mirror Earth</h3>
+      <p>What if another version of Earth existed beyond our reality?</p>
+      <button onclick="startWorld('mirror')">Enter Reality →</button>
+    </article>
+
+    <article class="world">
+      <div class="world-icon">🌌</div>
+      <h3>Dreamwalkers</h3>
+      <p>What if dreams became places that people could explore?</p>
+      <button onclick="startWorld('dream')">Enter Reality →</button>
+    </article>
+
+  </div>
+
+  <div class="builder" id="experience" style="display:none">
+    <div class="status" id="worldStatus">REALITY 01</div>
+    <h2 id="worldTitle">Welcome</h2>
+    <p class="subtext" id="worldStory"></p>
+    <div id="choices" class="choices"></div>
+    <div id="worldOutcome" class="result"></div>
+    <div class="action-row">
+      <button class="btn secondary" onclick="resetWorld()">Restart Reality ↻</button>
+      <button class="btn secondary" onclick="saveWorld()">Save World ♡</button>
+      <button class="btn secondary" onclick="shareWorld()">Share ↗</button>
     </div>
+  </div>
 
-    <div class="tool">
-      <div class="tool-icon">🎮</div>
-      <h3>Gaming Name Generator</h3>
-      <p>Discover cool gaming names for your next adventure.</p>
-      <button onclick="openTool('gaming')">Explore Tool →</button>
-    </div>
+</section>
 
-    <div class="tool">
-      <div class="tool-icon">✍️</div>
-      <h3>Bio Generator</h3>
-      <p>Generate creative bios for your social profiles.</p>
-      <button onclick="openTool('bio')">Explore Tool →</button>
-    </div>
+<section class="section" id="create">
 
-    <div class="tool">
-      <div class="tool-icon">✨</div>
-      <h3>Random Idea Generator</h3>
-      <p>Get a fresh idea whenever you need inspiration.</p>
-      <button onclick="openTool('ideas')">Explore Tool →</button>
-    </div>
+  <div class="heading">
+    <h2>Build Your Own <span class="gradient">Reality</span></h2>
+    <p>You are the architect. Give your universe its own rules.</p>
+  </div>
 
-    <div class="tool">
-      <div class="tool-icon">🔤</div>
-      <h3>Text Case Converter</h3>
-      <p>Change your text into different writing styles.</p>
-      <button onclick="openTool('text')">Explore Tool →</button>
-    </div>
+  <div class="builder">
 
-    <div class="tool">
-      <div class="tool-icon">🌙</div>
-      <h3>Secret Message Maker</h3>
-      <p>Turn your messages into simple encoded text.</p>
-      <button onclick="openTool('secret')">Explore Tool →</button>
+    <h2>Reality Builder ✦</h2>
+
+    <p class="subtext">
+      Create an imaginary universe and decide what makes it different.
+    </p>
+
+    <label for="worldName">Name your universe</label>
+    <input id="worldName" maxlength="45" placeholder="Example: The Forgotten Galaxy">
+
+    <label for="worldPremise">What if...?</label>
+    <textarea id="worldPremise" maxlength="400"
+      placeholder="Example: What if people could communicate with stars?"></textarea>
+
+    <label for="worldRule">One special rule of your world</label>
+    <input id="worldRule" maxlength="180"
+      placeholder="Example: Every star remembers a human story.">
+
+    <label for="worldSecret">A hidden secret about this world</label>
+    <input id="worldSecret" maxlength="180"
+      placeholder="Example: One star has stopped shining.">
+
+    <button class="btn" onclick="createWorld()">Create My Reality ✦</button>
+
+    <div class="result" id="createdResult">
+      <div class="status">YOUR NEW UNIVERSE</div>
+      <h3 id="createdTitle"></h3>
+      <p id="createdDescription"></p>
+      <div class="action-row">
+        <button class="btn secondary" onclick="saveCreated()">Save World ♡</button>
+        <button class="btn secondary" onclick="shareCreated()">Share ↗</button>
+      </div>
     </div>
 
   </div>
 </section>
 
-<section class="generator" id="generator">
-  <h2 id="toolTitle">Your Tool</h2>
-  <p id="toolDescription">Create something new.</p>
-
-  <div id="toolInputs"></div>
-
-  <button class="btn" onclick="generate()">Generate ✦</button>
-
-  <div class="result" id="result" aria-live="polite">
-    Your result will appear here.
+<section class="section" id="saved">
+  <div class="heading">
+    <h2>My Saved <span class="gradient">Worlds</span></h2>
+    <p>Your creations, stored in this browser.</p>
   </div>
-
-  <div class="actions">
-    <button class="btn secondary" onclick="copyResult()">Copy Result</button>
-    <button class="btn secondary" onclick="generate()">Try Again ↻</button>
-  </div>
+  <div id="savedList"></div>
 </section>
 
-<section class="about" id="about">
-  <h2>About <span class="gradient">NEXORA</span></h2>
+<section class="about">
+  <h2>Welcome to <span class="gradient">NEXORA</span></h2>
   <p>
-    NEXORA is an independent digital playground built for
-    creativity, discovery and fun. Explore our collection
-    of simple tools and make the internet a little more interesting.
+    An independent imagination lab where reality has no limits.
+    Explore possibilities, build alternate worlds and share
+    your ideas with others.
   </p>
 </section>
 
 <footer>
-  © 2026 <span>NEXORA</span>. Made for curious minds.
+  © 2026 <span>NEXORA</span> — Reality Unlocked.
   <br><br>
-  Built with creativity. Powered by imagination.
+  An independent creative project.
 </footer>
 
 <script>
-let currentTool = "";
 
-const random = arr => arr[Math.floor(Math.random() * arr.length)];
+const realities = {
 
-const toolData = {
-  username: {
-    title: "Username Generator",
-    description: "Create a unique online identity.",
-    inputs: '<input id="word" placeholder="Enter a word or nickname (optional)">',
-    run: () => {
-      const word = document.getElementById("word").value.trim();
-      const starts = ["Nova","Pixel","Shadow","Cosmic","Neon","Mystic","Cyber"];
-      const ends = ["X","Vibe","Storm","Verse","Spark","Wave","Core"];
-      return random([word || random(starts), random(ends)]) +
-        random(["", "X", "07", "99", "_", "HQ"]);
-    }
-  },
+time: {
+title:"The Time Divide",
+story:"The year is 2099. Every human has been given one opportunity to pause time for exactly one hour. You discover that your hour is approaching. What will you do?",
+choices:[
+["Use the hour to discover a hidden truth.","You discover a message that changes everything you believed about history."],
+["Use the hour to help someone.","A small act of kindness creates an unexpected chain of events."],
+["Use the hour to explore the world.","You discover a place that appears to exist outside normal time."]
+]
+},
 
-  gaming: {
-    title: "Gaming Name Generator",
-    description: "Find a name for your next gaming identity.",
-    inputs: "",
-    run: () => random([
-      "VoidPhantom","NeonReaper","FrostNova","PixelVortex",
-      "ShadowPulse","CyberKnight","GhostOrbit","StormByte",
-      "NightRogue","DarkComet","BlazeSpecter","ZeroLegend"
-    ]) + random(["","X","07","YT"])
-  },
+ocean: {
+title:"The Lost Ocean",
+story:"You wake up one morning. The oceans have vanished. Cities are confused, scientists are searching for answers, and something unusual has appeared beneath the seabed. What is your next move?",
+choices:[
+["Explore the newly exposed ocean floor.","You discover an enormous structure that predates human civilization."],
+["Investigate the strange lights.","The lights appear to follow a pattern. Someone, or something, may be communicating."],
+["Search for the cause.","You discover evidence of a mysterious event that nobody can explain."]
+]
+},
 
-  bio: {
-    title: "Bio Generator",
-    description: "Create a short profile bio.",
-    inputs: '<select id="mood"><option value="dreamer">Dreamer</option><option value="gaming">Gamer</option><option value="creative">Creative</option><option value="motivated">Motivated</option></select>',
-    run: () => {
-      const mood = document.getElementById("mood").value;
-      const bios = {
-        dreamer: ["Chasing dreams, creating my own universe ✨","Big dreams. Quiet moves. Endless possibilities.","Living beyond the ordinary 🌙"],
-        gaming: ["Game on. Limits off. 🎮","Born to play. Built to win.","One player. Infinite adventures."],
-        creative: ["Ideas into reality ✦","Creating my own kind of magic.","Different thoughts. Different worlds."],
-        motivated: ["Progress over perfection.","Building my future, one step at a time.","Stay curious. Keep creating."]
-      };
-      return random(bios[mood]);
-    }
-  },
+moon: {
+title:"Two Moons",
+story:"Earth now has two moons. The second moon appeared without warning, and its light changes the world in unexpected ways. What will you investigate?",
+choices:[
+["Study the second moon.","You discover that its surface contains unusual moving patterns."],
+["Investigate the effects on Earth.","Scientists discover a new natural phenomenon."],
+["Send a message toward it.","A mysterious signal returns with a response."]
+]
+},
 
-  ideas: {
-    title: "Random Idea Generator",
-    description: "Get inspired with a new project idea.",
-    inputs: "",
-    run: () => random([
-      "Build a website that recommends music based on your mood.",
-      "Create a digital collection of unusual facts.",
-      "Design a personal productivity dashboard.",
-      "Make a website that generates fictional worlds.",
-      "Create an interactive daily challenge.",
-      "Build a quiz that discovers your creative personality.",
-      "Make a collection of useful browser shortcuts.",
-      "Design a virtual dream travel planner."
-    ])
-  },
+power: {
+title:"The Power Age",
+story:"Every person on Earth has developed one extraordinary ability. Nobody knows why. Your city is learning to live with a completely different world. What will you do?",
+choices:[
+["Help create a fair society.","People begin developing new rules to make abilities safer and more accessible."],
+["Investigate where the powers came from.","You find a strange pattern connecting the first people affected."],
+["Explore the unknown abilities.","You discover that some abilities are much stranger than anyone imagined."]
+]
+},
 
-  text: {
-    title: "Text Case Converter",
-    description: "Enter text and choose your writing style.",
-    inputs: '<input id="word" placeholder="Type your text here"><select id="case"><option value="upper">UPPERCASE</option><option value="lower">lowercase</option><option value="title">Title Case</option><option value="reverse">Reverse Text</option></select>',
-    run: () => {
-      const t = document.getElementById("word").value;
-      const mode = document.getElementById("case").value;
-      if (mode === "upper") return t.toUpperCase();
-      if (mode === "lower") return t.toLowerCase();
-      if (mode === "reverse") return [...t].reverse().join("");
-      return t.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-    }
-  },
+mirror: {
+title:"The Mirror Earth",
+story:"A second Earth has appeared in the sky. It looks almost identical to ours, but some things are different. You have received the first message from its inhabitants. What now?",
+choices:[
+["Read the message.","The message contains a warning about an event that has not happened yet."],
+["Study the other Earth.","You notice that its cities are arranged in unfamiliar patterns."],
+["Send a reply.","Someone on the other Earth responds almost instantly."]
+]
+},
 
-  secret: {
-    title: "Secret Message Maker",
-    description: "Encode or decode a message using Base64. This is not secure encryption.",
-    inputs: '<input id="word" placeholder="Enter your message"><select id="mode"><option value="encode">Encode message</option><option value="decode">Decode message</option></select>',
-    run: () => {
-      const t = document.getElementById("word").value;
-      const mode = document.getElementById("mode").value;
-      try {
-        return mode === "encode"
-          ? btoa(unescape(encodeURIComponent(t)))
-          : decodeURIComponent(escape(atob(t)));
-      } catch(e) {
-        return "Invalid message. Please check your input.";
-      }
-    }
-  }
+dream: {
+title:"Dreamwalkers",
+story:"A new discovery allows people to enter shared dream worlds. The places are beautiful, strange and unpredictable. Your first journey is about to begin. Where will you go?",
+choices:[
+["Enter a world made of memories.","You find a place containing fragments of forgotten stories."],
+["Explore an impossible city.","The city changes its architecture whenever you make a decision."],
+["Search for the edge of the dream.","You discover a door leading to a completely different world."]
+]
+}
+
 };
 
-function openTool(name) {
-  currentTool = name;
-  const data = toolData[name];
+let activeWorld = null;
+let lastCreated = null;
+let saved = [];
 
-  document.getElementById("toolTitle").textContent = data.title;
-  document.getElementById("toolDescription").textContent = data.description;
-  document.getElementById("toolInputs").innerHTML = data.inputs;
-  document.getElementById("result").textContent = "Your result will appear here.";
-
-  const section = document.getElementById("generator");
-  section.style.display = "block";
-  section.scrollIntoView({behavior:"smooth", block:"center"});
+try {
+  saved = JSON.parse(localStorage.getItem("nexoraWorlds") || "[]");
+  if (!Array.isArray(saved)) saved = [];
+} catch(e) {
+  saved = [];
 }
 
-function generate() {
-  if (!currentTool) return;
+function go(id) {
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+
+function startWorld(id) {
+  activeWorld = id;
+  renderWorld();
+  document.getElementById("experience").style.display="block";
+  document.getElementById("experience").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function renderWorld() {
+  const w = realities[activeWorld];
+
+  document.getElementById("worldTitle").textContent=w.title;
+  document.getElementById("worldStory").textContent=w.story;
+  document.getElementById("worldStatus").textContent="ALTERNATE REALITY / "+activeWorld.toUpperCase();
+
+  document.getElementById("worldOutcome").style.display="none";
+  document.getElementById("worldOutcome").textContent="";
+
+  const area=document.getElementById("choices");
+  area.innerHTML="";
+
+  w.choices.forEach((choice,index)=>{
+    const button=document.createElement("button");
+    button.className="choice";
+    button.textContent=(index+1)+". "+choice[0];
+    button.addEventListener("click",()=>choose(index));
+    area.appendChild(button);
+  });
+}
+
+function choose(index) {
+  const w=realities[activeWorld];
+  const selected=w.choices[index];
+
+  document.querySelectorAll(".choice").forEach(b=>b.disabled=true);
+
+  const outcome=document.getElementById("worldOutcome");
+  outcome.style.display="block";
+
+  const heading=document.createElement("h3");
+  heading.textContent="Your Reality Has Changed ✦";
+
+  const description=document.createElement("p");
+  description.textContent=selected[1];
+
+  const note=document.createElement("p");
+  note.textContent="This is one possible fictional outcome of your choice.";
+
+  outcome.replaceChildren(heading,description,note);
+}
+
+function resetWorld() {
+  if(activeWorld) renderWorld();
+}
+
+function createWorld() {
+  const name=document.getElementById("worldName").value.trim();
+  const premise=document.getElementById("worldPremise").value.trim();
+  const rule=document.getElementById("worldRule").value.trim();
+  const secret=document.getElementById("worldSecret").value.trim();
+
+  if(!name || !premise || !rule || !secret) {
+    alert("Please complete all four fields to create your world.");
+    return;
+  }
+
+  lastCreated={
+    name,
+    premise,
+    rule,
+    secret
+  };
+
+  document.getElementById("createdTitle").textContent=name;
+
+  document.getElementById("createdDescription").textContent=
+    "PREMISE\n"+premise+
+    "\n\nWORLD RULE\n"+rule+
+    "\n\nHIDDEN SECRET\n"+secret;
+
+  document.getElementById("createdResult").style.display="block";
+  document.getElementById("createdResult").scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+function saveItem(item) {
+  if(!item) return;
+
+  if(saved.some(s=>JSON.stringify(s)===JSON.stringify(item))) {
+    alert("This world is already saved.");
+    return;
+  }
+
+  if(saved.length>=50) {
+    alert("Your local collection is full. Remove a saved world first.");
+    return;
+  }
+
+  saved.push(item);
+  persist();
+  renderSaved();
+  alert("World saved successfully!");
+}
+
+function saveCreated() {
+  saveItem(lastCreated);
+}
+
+function saveWorld() {
+  if(!activeWorld) return;
+  const w=realities[activeWorld];
+
+  saveItem({
+    name:w.title,
+    premise:w.story,
+    rule:"Explore the three possible choices.",
+    secret:"Discover your own interpretation of this reality."
+  });
+}
+
+function persist() {
+  try {
+    localStorage.setItem("nexoraWorlds",JSON.stringify(saved));
+  } catch(e) {
+    alert("Your browser storage is unavailable.");
+  }
+}
+
+function renderSaved() {
+  const area=document.getElementById("savedList");
+  area.innerHTML="";
+
+  if(!saved.length) {
+    area.innerHTML='<div class="empty">No saved worlds yet. Create your first reality above.</div>';
+    return;
+  }
+
+  saved.forEach((item,index)=>{
+    const card=document.createElement("div");
+    card.className="saved-item";
+
+    const title=document.createElement("h3");
+    title.textContent=item.name;
+
+    const desc=document.createElement("p");
+    desc.textContent=item.premise;
+
+    const remove=document.createElement("button");
+    remove.textContent="Remove";
+    remove.addEventListener("click",()=>{
+      saved.splice(index,1);
+      persist();
+      renderSaved();
+    });
+
+    const share=document.createElement("button");
+    share.textContent="Share ↗";
+    share.addEventListener("click",()=>shareItem(item));
+
+    card.append(title,desc,remove,share);
+    area.appendChild(card);
+  });
+}
+
+async function shareItem(item) {
+  const url=new URL(location.href);
+  url.hash="world="+encodeURIComponent(btoa(unescape(encodeURIComponent(JSON.stringify(item)))));
 
   try {
-    const output = toolData[currentTool].run();
-    document.getElementById("result").textContent =
-      output || "Please enter some text first.";
+    await navigator.clipboard.writeText(url.href);
+    alert("Share link copied!");
   } catch(e) {
-    document.getElementById("result").textContent =
-      "Something went wrong. Please try again.";
+    prompt("Copy your world link:",url.href);
   }
 }
 
-function copyResult() {
-  const text = document.getElementById("result").textContent;
+function shareCreated() {
+  if(lastCreated) shareItem(lastCreated);
+}
 
-  if (!text || text === "Your result will appear here.") return;
+function shareWorld() {
+  if(!activeWorld) return;
 
-  if (navigator.clipboard && window.isSecureContext) {
-    navigator.clipboard.writeText(text)
-      .then(() => alert("Copied successfully!"))
-      .catch(() => alert("Copy failed. Please select and copy the text."));
-  } else {
-    alert("Please select and copy the result manually.");
+  const w=realities[activeWorld];
+
+  shareItem({
+    name:w.title,
+    premise:w.story,
+    rule:"Explore the three possible choices.",
+    secret:"Discover your own interpretation of this reality."
+  });
+}
+
+function loadShared() {
+  if(!location.hash.startsWith("#world=")) return;
+
+  try {
+    const encoded=decodeURIComponent(location.hash.slice(7));
+    const item=JSON.parse(decodeURIComponent(escape(atob(encoded))));
+
+    if(typeof item.name!=="string" ||
+       typeof item.premise!=="string" ||
+       typeof item.rule!=="string" ||
+       typeof item.secret!=="string" ||
+       item.name.length>45 ||
+       item.premise.length>400 ||
+       item.rule.length>180 ||
+       item.secret.length>180) return;
+
+    document.getElementById("worldName").value=item.name;
+    document.getElementById("worldPremise").value=item.premise;
+    document.getElementById("worldRule").value=item.rule;
+    document.getElementById("worldSecret").value=item.secret;
+
+    lastCreated=item;
+
+    document.getElementById("createdTitle").textContent=item.name;
+    document.getElementById("createdDescription").textContent=
+      "PREMISE\n"+item.premise+
+      "\n\nWORLD RULE\n"+item.rule+
+      "\n\nHIDDEN SECRET\n"+item.secret;
+
+    document.getElementById("createdResult").style.display="block";
+  } catch(e) {
+    console.log("Shared world could not be loaded.");
   }
 }
+
+renderSaved();
+loadShared();
+
 </script>
-
 </body>
 </html>
